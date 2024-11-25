@@ -20,5 +20,22 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        \DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        \DB::table('product_types')->truncate();
+        \DB::table('products')->truncate();
+        \DB::table('benefits')->truncate();
+        \DB::table('ratings')->truncate();
+        \DB::table('product_benefit')->truncate();
+        \DB::table('programs')->truncate();
+        \DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+
+        $this->call([
+            ProductTypeSeeder::class,
+            ProductSeeder::class,
+            BenefitSeeder::class,
+            RatingSeeder::class,
+            ProductBenefitSeeder::class,
+            ProgramSeeder::class
+        ]);
     }
 }
