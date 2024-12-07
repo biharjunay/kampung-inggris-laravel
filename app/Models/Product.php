@@ -18,10 +18,6 @@ class Product extends Model
         return $this->belongsToMany(Benefit::class,"product_benefit");
     }
 
-    public function ratings(): HasMany {
-        return $this->hasMany(Rating::class);
-    }
-
     public function type(): BelongsTo {
         return $this->belongsTo(ProductType::class);
     }

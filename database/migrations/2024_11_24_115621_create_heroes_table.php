@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('key')->unique();
             $table->string('image_url');
-            $table->timestamps();
         });
     }
 

@@ -24,7 +24,7 @@ return new class extends Migration
             $table->decimal('price', 15, 0);
             $table->decimal('discount_price', 15, 0)->nullable();
             $table->tinyInteger('discount_percentage')->nullable();
-            $table->date('due_date')->nullable();
+            // $table->date('due_date')->nullable();
             $table->timestamps();
         });
     }

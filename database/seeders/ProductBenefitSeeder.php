@@ -16,8 +16,8 @@ class ProductBenefitSeeder extends Seeder
     {
         \DB::table('product_benefit')->insert([
             [
-                'product_id' => 1, // Assuming this product_id exists in the 'products' table
-                'benefit_id' => 1, // Assuming this benefit_id exists in the 'benefits' table
+                'product_id' => 1,
+                'benefit_id' => 1,
             ],
             [
                 'product_id' => 2,

@@ -24,18 +24,19 @@ class DatabaseSeeder extends Seeder
         \DB::table('product_types')->truncate();
         \DB::table('products')->truncate();
         \DB::table('benefits')->truncate();
-        \DB::table('ratings')->truncate();
         \DB::table('product_benefit')->truncate();
         \DB::table('programs')->truncate();
+        \DB::table('heroes')->truncate();
         \DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
         $this->call([
+            UserSeeder::class,
             ProductTypeSeeder::class,
             ProductSeeder::class,
             BenefitSeeder::class,
-            RatingSeeder::class,
             ProductBenefitSeeder::class,
-            ProgramSeeder::class
+            ProgramSeeder::class,
+            HeroSeeder::class
         ]);
     }
 }

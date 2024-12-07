@@ -2,13 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Brand extends Model
+class Article extends Model
 {
     use HasFactory;
-
     protected $guarded = [];
-    public $timestamps = false;
 }

@@ -44,8 +44,4 @@ class HeroController extends Controller
 
         return $this->sendResponse($hero, 201);
     }
-
-    // public function destroy($id): JsonResponse {
-
-    // }
 }

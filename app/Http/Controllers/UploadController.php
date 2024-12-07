@@ -10,8 +10,9 @@ class UploadController extends Controller
     {
         $inputs = $request->all();
         $validator = \Validator::make($inputs, [
-            'image' => 'required|mimes:png,jpg,jpeg',
+            'image' => 'required|mimes:png,jpg,jpeg,svg|max:2048',
         ]);
+
         if ($validator->fails())
             return $this->sendError($validator->errors(), 422);
 
@@ -19,12 +20,11 @@ class UploadController extends Controller
         $file = $request->file('image');
         $filename = time() . '.' . $file->extension();
 
+
         $disk->put("image/$filename", file_get_contents($file));
 
-        return response()->json([
-            'status' => 'success',
+        return $this->sendResponse([
             'url' => "image/$filename"
-        ], 200);
-
+        ]);
     }
 }

@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('testimonials', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('jobs');
+            $table->string('profession');
             $table->tinyInteger('rating');
-            $table->string('description');
             $table->longText('message');
+            $table->string('program_name');
             $table->string('video_url');
             $table->string('image_url');
             $table->timestamps();

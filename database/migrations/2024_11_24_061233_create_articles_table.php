@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
             $table->string('title');
-            $table->string('description');
+            $table->longText('content');
             $table->string('url');
             $table->string('published_by');
+            $table->string('image_url');
             $table->timestamps();
         });
     }
