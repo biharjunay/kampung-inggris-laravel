@@ -51,7 +51,7 @@ class TestimonialController extends Controller
     public function beforeUpdate($input, $id)
     {
         $testimonial = Testimonial::findOrFail($id);
-        if ($input->has('image_url') && $input->imageUrl !== $testimonial->image_url) {
+        if ($input->has('image_url') && $input->image_url !== $testimonial->image_url) {
             $disk = Storage::disk('public');
             if ($disk->exists($testimonial->image_url))
                 $disk->delete($testimonial->image_url);
