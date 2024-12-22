@@ -25,7 +25,7 @@ class ProgramSeeder extends Seeder
                 'price' => 4999,
                 'discount_price' => 3999,
                 'discount_percentage' => 10,
-                'due_date' => now()->addDays(30),
+                // 'due_date' => now()->addDays(30),
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

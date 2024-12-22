@@ -11,6 +11,7 @@ use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VideoGalleryController;
+use App\Http\Controllers\WhyWEController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -78,6 +79,12 @@ Route::middleware('auth:api')->group(function () {
         Route::delete('users/{id}', 'destroy');
     });
 
+    Route::controller(WhyweController::class)->group(function() {
+        Route::post('why-we', 'store');
+        Route::put('why-we/{id}', 'update');
+        Route::delete('why-we/{id}', 'destroy');
+    });
+
     Route::post('upload-image', [UploadController::class, 'upload_image']);
 });
 
@@ -100,6 +107,7 @@ Route::get('brands', [BrandController::class, 'index']);
 Route::get('testimonials', [TestimonialController::class, 'index']);
 Route::get('articles', [ArticleController::class, 'index']);
 Route::get('video-galleries', [VideoGalleryController::class, 'index']);
+Route::get('why-we', [WhyWEController::class, 'index']);
 
 Route::get('hero', [HeroController::class, 'index']);
 Route::post('hero', [HeroController::class, 'store']);

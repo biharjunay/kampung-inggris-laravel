@@ -27,6 +27,10 @@ class ProductController extends Controller
                 'total_student' => Program::select('total_student')
                     ->whereColumn('programs.product_id', 'products.id')
                     ->orderByDesc('total_student')
+                    ->limit(1),
+                'reviews' => Program::select('review')
+                    ->whereColumn('programs.product_id', 'products.id')
+                    ->orderByDesc('review')
                     ->limit(1)
             ]);
 

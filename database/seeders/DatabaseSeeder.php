@@ -32,10 +32,10 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             ProductTypeSeeder::class,
-            ProductSeeder::class,
-            BenefitSeeder::class,
-            ProductBenefitSeeder::class,
-            ProgramSeeder::class,
+            // ProductSeeder::class,
+            // BenefitSeeder::class,
+            // ProductBenefitSeeder::class,
+            // ProgramSeeder::class,
             HeroSeeder::class
         ]);
     }

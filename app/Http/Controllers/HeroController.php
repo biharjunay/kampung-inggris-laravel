@@ -13,7 +13,16 @@ class HeroController extends Controller
     public function index(Request $request)
     {
         $list = Hero::all();
-        $list = collect($list)->pluck('image_url', 'key');
+        $list = collect($list)->mapWithKeys(function ($item) {
+            return [
+                $item['key'] => [
+                    'value' => $item['value'] ?? '',
+                    'image_url' => $item['image_url'] ?? '',
+                    'redirect_to' => $item['redirect_to'] ?? '',
+                    'description' => $item['description'] ?? '',
+                ],
+            ];
+        });
         return $this->sendResponse($list);
     }
 
@@ -21,7 +30,8 @@ class HeroController extends Controller
     {
         $validators = \Validator::make($request->all(), [
             'key' => 'required',
-            'image_url' => 'required'
+            'image_url' => ['nullable', 'required_without:value', 'string'],
+            'value' => ['nullable', 'required_without:image_url', 'string'],
         ]);
 
         if ($validators->fails())

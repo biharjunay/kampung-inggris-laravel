@@ -29,6 +29,7 @@ class ProgramController extends Controller
             'total_minute' => 'required_if:type_id,2|integer',
             'price' => 'required|numeric|min:0',
             'discount_type' => 'nullable|in:percentage,flat',
+            'discount_percentage' => 'nullable|max:100',
             'discount_price' => 'nullable|numeric|min:0|lte:price',
         ]);
 
@@ -39,7 +40,7 @@ class ProgramController extends Controller
             ], 422);
 
 
-        $request['discount_percentage'] = ($request->discount_price ?? 0) > 0 ? (($request->price - $request->discount_price) / $request->price) * 100 : 0;
+        // $request['discount_percentage'] = ($request->discount_price ?? 0) > 0 ? (($request->price - $request->discount_price) / $request->price) * 100 : 0;
         $data = $request->all();
         $program = Program::create($data);
 
