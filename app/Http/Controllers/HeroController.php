@@ -43,9 +43,8 @@ class HeroController extends Controller
         else {
             if ($request->has('image_url') && $request->image_url !== $hero->image_url) {
                 $disk = \Storage::disk('public');
-                if ($disk->exists($hero->image_url))
+                if (!empty($hero->image_url) && $disk->exists($hero->image_url))
                     $disk->delete($hero->image_url);
-
                 $hero->image_url = $request->image_url;
             }
             $hero->fill($request->all());
