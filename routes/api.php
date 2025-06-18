@@ -114,4 +114,5 @@ Route::post('hero', [HeroController::class, 'store']);
 
 Route::post('login', [AuthController::class, 'login']);
 Route::post('register', [AuthController::class, 'register']);
+Route::post('2fa/verify', [AuthController::class, 'verify2fa']);
 
